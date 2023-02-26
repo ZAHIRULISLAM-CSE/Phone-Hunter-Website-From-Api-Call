@@ -34,6 +34,7 @@ const displayData=(data)=>{
     
     
             `
+            document.getElementById("loader").classList.add("hidden");
             parent.appendChild(div);
         }) 
      }
@@ -47,6 +48,7 @@ const displayData=(data)=>{
 }
 
 document.getElementById("search-btn").addEventListener("click",function(){
+    document.getElementById("loader").classList.remove("hidden");
     const value=document.getElementById("input-text").value;
     getData(value);
     document.getElementById("input-text").value="";
