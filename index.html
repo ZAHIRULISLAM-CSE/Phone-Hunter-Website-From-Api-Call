@@ -28,6 +28,9 @@
 
 </head>
 <body>
+  <header>
+    <h1 class="text-3xl mt-5 mb-6 text-center">Search With Phone Name As <br> iphone,samsung,oppo etc</h1>
+  </header>
     <section id="">
             <div class="input-group flex justify-center mt-6">
               <input id="input-text" type="text" placeholder="Search…" class="input input-bordered" />
@@ -59,9 +62,15 @@
     </section>
         
     <!-- Display Cards below container  -->
-    <section id="container" class=" ml-12 grid grid-cols-3 gap-x-6 gap-y-12 mt-20 ">
+    <section id="container" class=" ml-12 grid grid-cols-1 lg:grid-cols-3 mr-12 gap-x-6 gap-y-12 mt-20 ">
 
     </section>
+
+    <!-- See More Button  -->
+    <div class="flex justify-center">
+        <button id="see-more-btn" class="btn btn-secondary mt-5 hidden ">See More</button>
+    </div>
+
     <script src="./index.js"></script>
 </body>
 </html>
