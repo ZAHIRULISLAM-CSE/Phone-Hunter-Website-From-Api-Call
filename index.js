@@ -25,6 +25,7 @@ const displayData = (data,dataLimit) => {
              <h1 class="text-3xl text-center text-red-600" >No Data Found</h1>
              `;
     document.getElementById("loader").classList.add("hidden");
+    document.getElementById("see-more-btn").classList.add("hidden");
   }
 
    if(data.status == true && dataLimit==false){
