@@ -13,10 +13,10 @@ const getData=(value)=>{
 
 const displayData=(data)=>{
     document.getElementById("container").innerHTML="";
-     console.log(data);
      if(data.status == true){
         data.data.map(singleData =>{
-            const {phone_name,image,brand}=singleData;
+            const {phone_name,image,brand,slug}=singleData;
+            console.log(singleData);
             document.getElementById("container").classList.add("grid");
             const parent=document.getElementById("container");
             const div=document.createElement("div");
@@ -27,7 +27,7 @@ const displayData=(data)=>{
              <h2 class="card-title">${phone_name}</h2>
              <p>${brand}</p>
             <div class="card-actions justify-center">
-          <button class="btn btn-primary">Buy Now</button>
+          <label onclick="modalDetais('${slug}')" for="my-modal" class=" btn btn-primary">Buy Now</label>
         </div>
       </div>
     </div>
@@ -51,3 +51,30 @@ document.getElementById("search-btn").addEventListener("click",function(){
     getData(value);
     document.getElementById("input-text").value="";
 })
+
+const modalDetais=(slug)=>{
+     const url=`https://openapi.programming-hero.com/api/phone/${slug}`
+     fetch(url)
+    .then(response => response.json())
+    .then(data => displayModal(data))
+}
+
+const displayModal=(data)=>{
+    console.log(data.data);
+    const name=data.data.name;
+    const display=data.data.mainFeatures.displaySize;
+    const image=data.data.image;
+    const storage=data.data.mainFeatures.storage;
+    // console.log(name,display,image,storage);
+    document.getElementById("phone-name").innerHTML=name;
+    document.getElementById("modal-image").src = image;
+    document.getElementById("display").innerHTML =display;
+    document.getElementById("storage").innerHTML =storage;
+    
+
+
+}
+//displaySize
+//storage
+
+ 
